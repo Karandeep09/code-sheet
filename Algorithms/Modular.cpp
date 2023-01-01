@@ -12,9 +12,9 @@ class Modular {
     }
     
     Modular operator + (const Modular Rhs){ return Modular((x + Rhs.x) % mod); }
-    Modular operator - (const Modular Rhs){ return Modular((x - Rhs + mod) % mod); }
+    Modular operator - (const Modular Rhs){ return Modular((x - Rhs.x + mod) % mod); }
     Modular operator * (const Modular Rhs){ return Modular(x * Rhs.x % mod); }
-    Modular operator / (const Modular Rhs){ return Modular(x) * binpow(Rhs, mod-2); }
+    Modular operator / (const Modular Rhs){ return *this * binpow(Rhs, mod-2); }
     
     Modular binpow (Modular a, int n){
         Modular res = Modular(1);
